@@ -27,6 +27,23 @@ javascript:(function() { Game.LoadMod('http://aktanusa.github.io/CookieMonster/C
 
 https://www.thetechgame.com/Archives/p=32002002.html
 
+setTimeout(heartbeat,1); 
+function heartbeat(){ 
+eventFire(document.querySelector('#bigCookie'),'click'); 
+setTimeout(heartbeat,1); 
+} 
+function eventFire(el, etype){ 
+if (el.fireEvent) { 
+(el.fireEvent('on' + etype)); 
+} else { 
+var evObj = document.createEvent('Events'); 
+evObj.initEvent(etype, true, false); 
+el.dispatchEvent(evObj); 
+} 
+}
+
+^AutoClicker
+
 [name] saysopensesame
 ^dev console
 
